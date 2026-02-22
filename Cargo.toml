@@ -1,6 +1,46 @@
-[package]
-name = "rusty-automation"
-version = "0.1.0"
-edition = "2024"
+[workspace]
+members = [
+    "crates/api",
+    "crates/engine",
+    "crates/nodes",
+    "crates/queue",
+    "crates/db",
+    "crates/cli",
+]
 
-[dependencies]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["Rusty Automation Contributors"]
+
+[workspace.dependencies]
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Core Utils - Note: Removed `v4` to avoid `getrandom` which fails to compile on this MinGW environment
+uuid = { version = "1.8", features = ["serde"] }
+
+# Error Handling
+thiserror = "1.0"
+anyhow = "1.0"
+
+# Observability
+tracing = "0.1"
+
+# Traits
+async-trait = "0.1"
+
+# Internal Crates
+api = { path = "crates/api" }
+engine = { path = "crates/engine" }
+nodes = { path = "crates/nodes" }
+queue = { path = "crates/queue" }
+db = { path = "crates/db" }
+
+# NOTE: Async Runtime (tokio), API framework (axum), and db (sqlx) are omitted 
+# from this scaffold to ensure `cargo build` succeeds on systems with 
+# broken or mixed 32-bit/64-bit MinGW toolchains. Add these dependencies back
+# once the `x86_64-pc-windows-gnu` / `getrandom` compiling issue is resolved on the host. 

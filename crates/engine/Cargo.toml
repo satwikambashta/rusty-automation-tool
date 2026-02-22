@@ -1,0 +1,16 @@
+[package]
+name = "engine"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+uuid.workspace = true
+tracing.workspace = true
+thiserror.workspace = true
+anyhow.workspace = true
+nodes.workspace = true
+db.workspace = true
+queue.workspace = true
