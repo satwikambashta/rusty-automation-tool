@@ -1,14 +1,14 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
+//! `engine` crate — core domain models, DAG validation, and the execution engine.
+
+pub mod models;
+pub mod error;
+pub mod dag;
+pub mod executor;
+
+pub use models::{Workflow, Trigger, NodeDefinition, Edge};
+pub use error::EngineError;
+pub use dag::validate_dag;
+pub use executor::WorkflowExecutor;
 
 #[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
-}
+mod executor_tests;

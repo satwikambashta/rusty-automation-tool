@@ -5,12 +5,17 @@ edition.workspace = true
 authors.workspace = true
 
 [dependencies]
+tokio.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 uuid.workspace = true
+chrono.workspace = true
 tracing.workspace = true
 thiserror.workspace = true
 anyhow.workspace = true
+async-trait.workspace = true
 nodes.workspace = true
 db.workspace = true
-queue.workspace = true
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full", "test-util"] }

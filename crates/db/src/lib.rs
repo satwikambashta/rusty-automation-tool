@@ -1,14 +1,12 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
+//! `db` crate — pure persistence layer.
+//!
+//! Provides a connection pool, typed row structs, and repository functions
+//! for every table in the rusty-automation schema.  No business logic lives here.
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+pub mod error;
+pub mod pool;
+pub mod repository;
+pub mod models;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
-}
+pub use pool::DbPool;
+pub use error::DbError;

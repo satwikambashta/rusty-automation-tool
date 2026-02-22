@@ -5,6 +5,8 @@ edition.workspace = true
 authors.workspace = true
 
 [dependencies]
+tokio.workspace = true
+axum.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 tracing.workspace = true

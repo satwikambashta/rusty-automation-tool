@@ -1,14 +1,9 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
-}
+//! `api` crate — HTTP REST API layer (not yet implemented).
+//!
+//! Will expose:
+//!   POST   /api/v1/workflows
+//!   GET    /api/v1/workflows
+//!   GET    /api/v1/workflows/{id}
+//!   DELETE /api/v1/workflows/{id}
+//!   POST   /api/v1/workflows/{id}/execute
+//!   POST   /api/v1/webhook/{path}

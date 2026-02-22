@@ -1,0 +1,14 @@
+# Cargo project configuration — rusty-automation-tool
+#
+# Uses the MSYS2 64-bit MinGW toolchain for the x86_64-pc-windows-gnu target.
+# Make sure C:\msys64\mingw64\bin is in your PATH, or these overrides apply.
+
+[target.x86_64-pc-windows-gnu]
+linker = "C:\\msys64\\mingw64\\bin\\gcc.exe"
+ar     = "C:\\msys64\\mingw64\\bin\\ar.exe"
+
+[env]
+# Point the `cc` crate at our 64-bit GCC so build scripts compile correctly.
+CC  = "C:\\msys64\\mingw64\\bin\\gcc.exe"
+CXX = "C:\\msys64\\mingw64\\bin\\g++.exe"
+AR  = "C:\\msys64\\mingw64\\bin\\ar.exe"

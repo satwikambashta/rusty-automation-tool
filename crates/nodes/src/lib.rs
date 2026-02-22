@@ -1,14 +1,11 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
+//! `nodes` crate — the `ExecutableNode` trait and built-in node implementations.
+//!
+//! Every node — built-in and plugin alike — must implement [`ExecutableNode`].
+//! The engine crate dispatches execution through this trait object.
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+pub mod error;
+pub mod traits;
+pub mod mock;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
-}
+pub use error::NodeError;
+pub use traits::ExecutableNode;
