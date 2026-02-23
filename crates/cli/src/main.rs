@@ -50,8 +50,12 @@ async fn main() {
     match cli.command {
         Command::Serve { bind } => {
             info!("Starting API server on {bind}");
-            // TODO: wire up api::serve(bind).await
-            todo!("API server not yet implemented");
+            let database_url = std::env::var("DATABASE_URL")
+                .unwrap_or_else(|_| "postgres://postgres:postgres@localhost/rusty_automation".to_string());
+            let pool = db::pool::create_pool(&database_url, 10)
+                .await
+                .expect("failed to connect to database");
+            api::serve(&bind, pool).await.unwrap();
         }
         Command::Worker => {
             info!("Starting background worker");

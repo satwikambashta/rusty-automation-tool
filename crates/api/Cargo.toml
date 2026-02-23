@@ -14,3 +14,4 @@ thiserror.workspace = true
 engine.workspace = true
 db.workspace = true
 uuid.workspace = true
+tower-http = { version = "0.5", features = ["cors", "trace"] }
